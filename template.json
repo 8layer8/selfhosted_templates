@@ -4159,5 +4159,48 @@
         "label": "TZ"
       }
     ]
+  },
+    {
+    "type": 1,
+    "title": "Podgrab",
+    "name": "podgrab",
+    "description": "Podgrab is a is a self-hosted podcast manager which automatically downloads latest podcast episodes. It is a light-weight application built using GO.",
+    "logo": "https://raw.githubusercontent.com/SelfhostedPro/selfhosted_templates/master/Images/airsonic-logo.png",
+    "image": "akhilrex/podgrab",
+    "categories": [
+      "Music"
+    ],
+    "platform": "linux",
+    "restart_policy": "unless-stopped",
+    "ports": [
+      "8080:8080/tcp"
+    ],
+    "volumes": [
+      {
+        "container": "/config",
+        "bind": "/podgrab/config"
+      },
+      {
+        "container": "/assets",
+        "bind": "/podgrab/assets"
+      }
+    ],
+    "env": [
+      {
+        "name": "PUID",
+        "label": "PUID",
+        "default": "1020"
+      },
+      {
+        "name": "PGID",
+        "label": "PGID",
+        "default": "1000"
+      },
+      {
+        "name": "CHECK_FREQUENCY",
+        "label": "CHECK_FREQUENCY",
+        "set": "240"
+      }
+    ]
   }
 ]
